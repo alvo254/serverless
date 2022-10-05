@@ -11,9 +11,21 @@ import { getUserId } from '../utils';
 export const handler = middy(
   async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     // Write your code here
-    const todos = '...'
+    console.log("Processing Event ", event);
+    const authorization = event.headers.Authorization;
+    const split = authorization.split(' ');
+    const jwtToken = split[1];
 
-    return undefined
+    const toDos = await getAllToDo(jwtToken);
+
+    return {
+      statusCode: 200,
+      headers: {
+          "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+          "items": toDos,
+      }),
 
 handler.use(
   cors({
