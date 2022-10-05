@@ -1,13 +1,13 @@
-org: alvokham
-app: serverless-alvokham
-service: serverless-alvokham
+# TODO: Change the name of the org 
+org: newthingade
+app: serverless-udapeople
+service: serverless-udapeople
 
 plugins:
   - serverless-webpack
   - serverless-iam-roles-per-function
-  - serverless-plugin-tracing
-
-
+  - serverless-reqvalidator-plugin
+  - serverless-aws-documentation
   
 
 provider:
@@ -24,9 +24,9 @@ provider:
   # Use these variables in the functions and resouorces section below. For example, 
   # ${self:provider.environment.ATTACHMENT_S3_BUCKET}
   environment:
-    PROJECT_NAME: alvokham-serveless
-    TODOS_TABLE: alvokham-serverless-${self:provider.stage}
-    S3_BUCKET_NAME: alvokham-serverless-${self:provider.stage}
+    PROJECT_NAME: uda-todo-city-serveless
+    TODOS_TABLE: uda-todo-city-serverless-${self:provider.stage}
+    S3_BUCKET_NAME: uda-todo-city-serverless-${self:provider.stage}
 
 
 custom:

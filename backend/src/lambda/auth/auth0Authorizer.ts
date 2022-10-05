@@ -83,3 +83,4 @@ function getToken(authHeader: string): string {
 
   return token
 }
+
