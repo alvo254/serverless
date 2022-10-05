@@ -289,3 +289,13 @@ Right click on the imported collection to set variables for the collection:
 Provide variables for the collection (similarly to how this was done in the course):
 
 ![Alt text](images/import-collection-5.png?raw=true "Image 5")
+
+
+## Error
+incase of this error -  
+
+in /home/moringa/Desktop/udacity/cloudDev/serverless/backend/node_modules/@types/express-serve-static-core/index.d.ts
+  [tsl] ERROR in /home/moringa/Desktop/udacity/cloudDev/serverless/backend/node_modules/@types/express-serve-static-core/index.d.ts(1255,1)
+        TS1160: Unterminated template literal.
+# Please install this         
+npm install @types/express-serve-static-core@4.17.20
