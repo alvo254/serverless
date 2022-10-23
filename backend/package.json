@@ -4,6 +4,7 @@
   "description": "Serverless TODO image app",
   "dependencies": {
     "@types/axios": "^0.14.0",
+    "@types/express-serve-static-core": "^4.17.20",
     "@types/http-errors": "^1.8.2",
     "aws-xray-sdk": "^2.5.0",
     "axios": "^0.21.4",
