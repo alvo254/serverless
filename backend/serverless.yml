@@ -11,7 +11,6 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
- # lambdaHashingVersion: '20201221'
   stage: ${opt:stage, 'prod'}
   region: ${opt:region, 'us-east-1'}
 
@@ -62,31 +61,14 @@ custom:
               type: string
             done:
               type: boolean
-  
-  
-  
-  
-  #logs:
-    # Enable API Gateway logs
-   # restApi: true
-
-  #iam:
-   # role:
-    #  statements:
-     #   - Effect: Allow
-     #     Action:
-     #       - xray:PutTelemetryRecords
-     #       - xray:PutTraceSegments
-     #     Resource: "*"
-
+          
 
 functions:
 
   Auth:
     handler: src/lambda/auth/auth0Authorizer.handler
 
-  # TODO: Configure this function - 
-  # Provide iamRoleStatements property for performing Actions on DynamoDB
+  # TODO: Configure this function
   GetTodos:
     handler: src/lambda/http/getTodos.handler
     events:
@@ -107,7 +89,8 @@ functions:
         Resource: 
           - '*'
 
-# Create todo
+  # TODO: Configure this function
+ 
   CreateTodo:
     handler: src/lambda/http/createTodo.handler
     events:
@@ -134,9 +117,7 @@ functions:
         Resource: 
           - '*'
 
-
-#### Update todo
-
+  # TODO: Configure this function
   UpdateTodo:
     handler: src/lambda/http/updateTodo.handler
     events:
@@ -163,8 +144,7 @@ functions:
         Resource: 
           - '*'
 
-### Delete Todo
-
+  # DELETE: Configure this function
   DeleteTodo:
     handler: src/lambda/http/deleteTodo.handler
     events:
@@ -185,9 +165,7 @@ functions:
         Resource: 
           - '*'
 
-  # TODO: Configure this function
-  # Provide property for setting up CORS, Authorizer, iamRoleStatements
-
+  # POST: Configure this function
   GenerateUploadUrl:
     handler: src/lambda/http/generateUploadUrl.handler
     events:
@@ -203,7 +181,6 @@ functions:
           - s3:*
           - xray:PutTraceSegments 
         Resource: arn:aws:s3:::${self:provider.environment.S3_BUCKET_NAME}/*
-
 
 resources:
   Resources:
@@ -248,7 +225,7 @@ resources:
                 - DELETE
                 - HEAD
               MaxAge: 300
-   
+
     RequestBodyValidator:
       Type: AWS::ApiGateway::RequestValidator
       Properties:
